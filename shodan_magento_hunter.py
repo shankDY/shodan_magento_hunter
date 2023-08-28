@@ -8,7 +8,7 @@ def get_magento_addr(result):
         ports_str = ', '.join(map(str, ports))
         return f"{ip}:{ports_str}"
     else:
-        return ip
+        return f"http://{ip}"
 
 def search_magento_sites(api, max_addresses):
     try:
@@ -25,7 +25,7 @@ def search_magento_sites(api, max_addresses):
                 ip_list.append(future.result())
         
         with open(file_path, 'w') as file:
-            file.write('\nhttp://'.join(ip_list))
+            file.write('\n'.join(ip_list))
         
         print(f"Адреса собраны и файл {file_path} успешно создан")
         
