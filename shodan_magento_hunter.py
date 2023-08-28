@@ -6,7 +6,7 @@ def get_magento_addr(result):
     ports = result.get('ports', [])
     if ports:
         ports_str = ', '.join(map(str, ports))
-        return f"{ip}:{ports_str}"
+        return f"http://{ip}:{ports_str}"
     else:
         return f"http://{ip}"
 
